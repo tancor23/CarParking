@@ -18,31 +18,28 @@ public class OrderDaoDBImpl implements OrderDao {
 
 	@Override
 	public void create(Order entity) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public Order read(int id) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
 	@Override
 	public List<Order> readAll() {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
 
 	@Override
 	public void update(Order entity) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -50,7 +47,7 @@ public class OrderDaoDBImpl implements OrderDao {
 	public void insertNewOrder(int userId, int carId) {
 		try (Connection connection = DBConnectionHelper.connect();
 				PreparedStatement ps = connection
-						.prepareStatement("INSERT INTO orders ('user_id', 'car_id') VALUES ('?', '?');")) {
+						.prepareStatement("INSERT INTO orders ('id_user', 'id_car') VALUES ('?', '?');")) {
 			ps.setInt(1, userId);
 			ps.setInt(2, carId);
 			ps.executeUpdate();

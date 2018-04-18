@@ -8,13 +8,11 @@ import java.util.ResourceBundle;
 
 public final class DBConnectionHelper {
 
-	private DBConnectionHelper() {
-	}
+	private DBConnectionHelper() {}
 
 	public static Connection connect() {
 
 		Connection connection = null;
-
 		try {
 			ResourceBundle rb = ResourceBundle.getBundle(DB_CONNECT_PROPERTY);
 

@@ -2,12 +2,17 @@ package by.htp.carparking.web.controller;
 
 import java.io.IOException;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+
 import by.htp.carparking.web.action.ActionManager;
+import by.htp.carparking.web.action.ActionManagerContext;
 import by.htp.carparking.web.action.BaseAction;
 
 import static by.htp.carparking.web.util.WebConstantDeclaration.*;
@@ -34,8 +39,14 @@ public class FrontController extends HttpServlet {
 
 	private static void process(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		ServletContext servletContext = request.getServletContext();
+		WebApplicationContext webApplicationContext = WebApplicationContextUtils.getWebApplicationContext(servletContext);
+		
+		
+		
 		String action = request.getParameter(REQUEST_PARAM_ACTION);
-		BaseAction baseAction = ActionManager.getAction(action);
+		BaseAction baseAction = ActionManagerContext.getAction(action, webApplicationContext);
 		String page = baseAction.executeAction(request);
 		if (action != null) {
 			request.getRequestDispatcher(page).forward(request, response);

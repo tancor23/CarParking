@@ -12,7 +12,11 @@ import by.htp.carparking.web.action.BaseAction;
 public class OrderCarAction implements BaseAction {
 
 	// TODO to IoC
-	private OrderService orderService = new OrderServiceImpl();
+	private OrderService orderService;
+	
+	public void setOrderService(OrderService orderService) {
+		this.orderService = orderService;
+	}
 
 	@Override
 	public String executeAction(HttpServletRequest request) {

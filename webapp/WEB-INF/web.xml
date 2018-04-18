@@ -17,15 +17,27 @@
 		<servlet-name>MainServlet</servlet-name>
 		<url-pattern>/MainServlet</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
-	<servlet-name>FrontController</servlet-name>
-	<servlet-class>by.htp.carparking.web.controller.FrontController</servlet-class>
+		<servlet-name>FrontController</servlet-name>
+		<servlet-class>by.htp.carparking.web.controller.FrontController</servlet-class>
 	</servlet>
-	
+
 	<servlet-mapping>
-	<servlet-name>FrontController</servlet-name>
-	<url-pattern>/FrontController</url-pattern>
+		<servlet-name>FrontController</servlet-name>
+		<url-pattern>/FrontController</url-pattern>
 	</servlet-mapping>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:app-beans.xml</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>by.htp.carparking.web.listener.SimpleSessionListener</listener-class>
+	</listener>
 
 </web-app>

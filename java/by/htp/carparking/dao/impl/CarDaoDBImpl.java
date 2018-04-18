@@ -13,17 +13,23 @@ import by.htp.carparking.dao.CarDao;
 import by.htp.carparking.domain.Car;
 
 public class CarDaoDBImpl implements CarDao {
+	
+	
+
+	public CarDaoDBImpl() {
+	}
 
 	@Override
 	public void create(Car car) {
 
 		try (Connection connection = DBConnectionHelper.connect();
 				PreparedStatement ps = connection
-						.prepareStatement("INSERT INTO cars (brand, model) VALUES ('?', '?');")) {
+						.prepareStatement("INSERT INTO cars (brand, model) VALUES (?, ?);", 
+								Statement.RETURN_GENERATED_KEYS)) {
 			ps.setString(1, car.getBrand());
 			ps.setString(2, car.getModel());
-			int rowsAffected = ps.executeUpdate();
-			if (rowsAffected == 1) {
+			int rowsCount = ps.executeUpdate();
+			if (rowsCount == 1) {
 				ResultSet result = ps.getGeneratedKeys();
 				result.next();
 				int id = result.getInt(1);
@@ -37,7 +43,7 @@ public class CarDaoDBImpl implements CarDao {
 	@Override
 	public Car read(int id) {
 		try (Connection connection = DBConnectionHelper.connect();
-				PreparedStatement ps = connection.prepareStatement("Select * FROM cars WHERE id='?'")) {
+				PreparedStatement ps = connection.prepareStatement("Select * FROM cars WHERE id_car=?")) {
 			ps.setInt(1, id);
 			ResultSet result = ps.executeQuery();
 			if (result.next()) {
@@ -76,7 +82,7 @@ public class CarDaoDBImpl implements CarDao {
 	public void update(Car car) {
 		try (Connection connection = DBConnectionHelper.connect();
 				PreparedStatement ps = connection
-						.prepareStatement("UPDATE cars SET brand='?', model='?' WHERE id='?';")) {
+						.prepareStatement("UPDATE cars SET brand=?, model=? WHERE id_car=?;")) {
 			ps.setString(1, car.getBrand());
 			ps.setString(2, car.getModel());
 			ps.setInt(3, car.getId());
@@ -89,7 +95,7 @@ public class CarDaoDBImpl implements CarDao {
 	@Override
 	public void delete(int id) {
 		try (Connection connection = DBConnectionHelper.connect();
-				PreparedStatement pStatement = connection.prepareStatement("DELETE FROM cars WHERE id='?';")) {
+				PreparedStatement pStatement = connection.prepareStatement("DELETE FROM cars WHERE id_car=?;")) {
 			pStatement.setInt(1, id);
 			pStatement.executeUpdate();
 		} catch (SQLException e) {

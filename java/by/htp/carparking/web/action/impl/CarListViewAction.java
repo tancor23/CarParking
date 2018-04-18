@@ -11,7 +11,15 @@ import by.htp.carparking.web.action.BaseAction;
 public class CarListViewAction implements BaseAction {
 
 	// TODO change to IoC
-	private CarService carService = new CarServiceImpl();
+	private CarService carService;
+	
+	public CarService getCarService() {
+		return carService;
+	}
+
+	public void setCarService(CarService carService) {
+		this.carService = carService;
+	}
 
 	@Override
 	public String executeAction(HttpServletRequest request) {
@@ -20,7 +28,7 @@ public class CarListViewAction implements BaseAction {
 		
 		request.setAttribute(REQUEST_PARAM_CAR_LIST, cars);
 
-		return PAGE_USER_MAIN;
+		return PAGE_USER_CARS_LIST;
 	}
 
 }
