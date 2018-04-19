@@ -7,19 +7,12 @@ public class SimpleSessionListener implements HttpSessionListener {
 
 	@Override
 	public void sessionCreated(HttpSessionEvent se) {
-System.out.println("Session was created");
-System.out.println(se.getSource());
-System.out.println(se.getSession().getId());
-System.out.println(se.getSession().getLastAccessedTime());
-se.getSession().setMaxInactiveInterval(1);
+		System.out.println("Session was created");
 	}
 
 	@Override
 	public void sessionDestroyed(HttpSessionEvent se) {
 		System.out.println("Session was destroyed");
-		System.out.println(se.getSource());
-		System.out.println(se.getSession().getId());
-		System.out.println(se.getSession().getLastAccessedTime());
 	}
 
 }

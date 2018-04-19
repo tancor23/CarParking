@@ -12,7 +12,7 @@ public class WebConstantDeclaration {
 	public static final String ACTION_NAME_ORDER_CAR = "order_car";
 	public static final String ACTION_NAME_RETURN_CAR = "return_car";
 
-	public static final String PAGE_USER_MAIN = "/WEB-INF/page/user/main.jsp";
+	public static final String PAGE_USER_CARS_EDIT = "/WEB-INF/page/user/editcars.jsp";
 	public static final String PAGE_USER_CARS_LIST = "/WEB-INF/page/user/main.jsp";
 
 	private WebConstantDeclaration() {

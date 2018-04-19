@@ -6,7 +6,6 @@ import static by.htp.carparking.web.util.HttpRequestParamFormatter.*;
 
 import javax.servlet.http.HttpServletRequest;
 import by.htp.carparking.service.OrderService;
-import by.htp.carparking.service.impl.OrderServiceImpl;
 import by.htp.carparking.web.action.BaseAction;
 
 public class OrderCarAction implements BaseAction {
@@ -28,7 +27,7 @@ public class OrderCarAction implements BaseAction {
 		orderService.orderCar(formatString(userId), formatString(carId));
 
 		request.setAttribute(REQUEST_MSG_SUCCES, "The car was ordered successfully");
-		return PAGE_USER_MAIN;
+		return PAGE_USER_CARS_EDIT;
 	}
 
 }
