@@ -23,46 +23,53 @@
 
 
 	<properties>
+		<servlet-api.version>4.0.0</servlet-api.version>
+		<mysql-connector.version>6.0.6</mysql-connector.version>
+		<jstl.version>1.2</jstl.version>
+		<taglibs-standart.version>1.1.2</taglibs-standart.version>
+		<log4j-api.version>2.11.0</log4j-api.version>
+		<log4j-core.version>2.11.0</log4j-core.version>
 		<spring-framework.version>4.3.16.RELEASE</spring-framework.version>
 		<spring-web.version>4.3.16.RELEASE</spring-web.version>
+
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-			<version>4.0.0</version>
+			<version>${servlet-api.version}</version>
 
 		</dependency>
 
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>6.0.6</version>
+			<version>${mysql-connector.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
-			<version>1.2</version>
+			<version>${jstl.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>taglibs</groupId>
 			<artifactId>standard</artifactId>
-			<version>1.1.2</version>
+			<version>${taglibs-standart.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-api</artifactId>
-			<version>2.11.0</version>
+			<version>${log4j-api.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-core</artifactId>
-			<version>2.11.0</version>
+			<version>${log4j-core.version}</version>
 		</dependency>
 
 		<dependency>
