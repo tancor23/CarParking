@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean name="carDao"
-		class="by.htp.carparking.dao.impl.CarDaoDBImpl"></bean>
+		class="by.htp.carparking.dao.hbn.CarDaoHibernateImpl"></bean>
 	<bean name="orderDao"
 		class="by.htp.carparking.dao.impl.OrderDaoDBImpl"></bean>
 
