@@ -72,7 +72,7 @@ public class MainServlet extends HttpServlet {
 		}
 		List<Car> cars = DAOSingletonOfCar.getDAO().carDAO.readAll();
 		request.setAttribute("cars", cars);
-		RequestDispatcher dispatcher = request.getRequestDispatcher(PAGE_USER_CARS_EDIT);
+		RequestDispatcher dispatcher = request.getRequestDispatcher(PAGE_USER_MAIN);
 		dispatcher.forward(request, response);
 
 	}

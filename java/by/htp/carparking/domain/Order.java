@@ -1,13 +1,16 @@
 package by.htp.carparking.domain;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 public class Order extends Entity implements Serializable {
 
-	private static final long serialVersionUID = -5731960048387459760L;
-
+	private static final long serialVersionUID = 1997512656362334676L;
+	
 	private int userId;
 	private int carId;
+	private LocalDate startOfRental;
+	private LocalDate endOfRental;
 
 	public Order() {
 		super();
@@ -29,6 +32,14 @@ public class Order extends Entity implements Serializable {
 		this.carId = carId;
 	}
 
+	public Order(int userId, int carId, LocalDate startOfRental, LocalDate endOfRental) {
+		super();
+		this.userId = userId;
+		this.carId = carId;
+		this.startOfRental = startOfRental;
+		this.endOfRental = endOfRental;
+	}
+
 	public int getUserId() {
 		return userId;
 	}
@@ -45,38 +56,20 @@ public class Order extends Entity implements Serializable {
 		this.carId = carId;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * getId();
-		result = prime * result + carId;
-		result = prime * result + userId;
-		return result;
+	public LocalDate getStartOfRental() {
+		return startOfRental;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (obj == null) {
-			return false;
-		}
-		if (getClass() != obj.getClass()) {
-			return false;
-		}
-		Order other = (Order) obj;
-		if (getId() != other.getId()) {
-			return false;
-		}
-		if (carId != other.carId) {
-			return false;
-		}
-		if (userId != other.userId) {
-			return false;
-		}
-		return true;
+	public void setStartOfRental(LocalDate startOfRental) {
+		this.startOfRental = startOfRental;
+	}
+
+	public LocalDate getEndOfRental() {
+		return endOfRental;
+	}
+
+	public void setEndOfRental(LocalDate endOfRental) {
+		this.endOfRental = endOfRental;
 	}
 
 }

@@ -1,11 +1,18 @@
 package by.htp.carparking.web.util;
 
-public class HttpRequestParamFormatter {
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
-	private HttpRequestParamFormatter() {
-	}
+public final class HttpRequestParamFormatter {
+	
+	private HttpRequestParamFormatter() {}
+	
+	public static int formatStringToInt(String value){
+		return Integer.parseInt(value);
+    }
 
-	public static int formatString(String param) {
-		return Integer.parseInt(param);
-	}
+	public static LocalDate formatStringToLocalDate(String value){
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		return LocalDate.parse(value, formatter);
+    }
 }

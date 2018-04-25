@@ -9,25 +9,24 @@ import by.htp.carparking.service.OrderService;
 import by.htp.carparking.web.action.BaseAction;
 
 public class OrderCarAction implements BaseAction {
-
-	// TODO to IoC
-	private OrderService orderService;
 	
-	public void setOrderService(OrderService orderService) {
-		this.orderService = orderService;
-	}
+	private OrderService orderService;
 
 	@Override
 	public String executeAction(HttpServletRequest request) {
-
 		String carId = request.getParameter(REQUEST_PARAM_CAR_ID);
 		String userId = request.getParameter(REQUEST_PARAM_USER_ID);
+		String startOfRental = request.getParameter(REQUEST_PARAM_START_OF_RENTAL);
+		String endtOfRental = request.getParameter(REQUEST_PARAM_END_OF_RENTAL);
+		validateRequestParamNotNull(carId, userId, startOfRental, endtOfRental);
+		orderService.orderCar(formatStringToInt(userId), formatStringToInt(carId),
+				formatStringToLocalDate(startOfRental), formatStringToLocalDate(endtOfRental));
+		request.setAttribute(REQUEST_MSG_SUCCESS, "The car ordered successfully");
+		return PAGE_USER_MAIN;
+	}
 
-		validateRequestParamNotNull(carId, userId);
-		orderService.orderCar(formatString(userId), formatString(carId));
-
-		request.setAttribute(REQUEST_MSG_SUCCES, "The car was ordered successfully");
-		return PAGE_USER_CARS_EDIT;
+	public void setOrderService(OrderService orderService) {
+		this.orderService = orderService;
 	}
 
 }

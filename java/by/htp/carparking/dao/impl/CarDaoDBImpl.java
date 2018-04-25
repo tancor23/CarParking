@@ -62,7 +62,7 @@ public class CarDaoDBImpl implements CarDao {
 
 		try (Connection connection = DBConnectionHelper.connect(); Statement statement = connection.createStatement()) {
 
-			ResultSet result = statement.executeQuery("Select id_car, brand, model FROM cars");
+			ResultSet result = statement.executeQuery("SELECT id_car, brand, model FROM cars");
 			while (result.next()) {
 				Car car = new Car();
 				car.setId(result.getInt("id_car"));

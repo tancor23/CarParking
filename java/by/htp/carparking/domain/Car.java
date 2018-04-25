@@ -2,7 +2,7 @@ package by.htp.carparking.domain;
 
 import java.io.Serializable;
 
-public class Car extends Entity implements Serializable{
+public class Car extends Entity implements Serializable {
 
 	private static final long serialVersionUID = 3528864625324052068L;
 	private String brand;
@@ -21,7 +21,7 @@ public class Car extends Entity implements Serializable{
 		this.model = model;
 		this.brand = brand;
 	}
-	
+
 	public Car(String brand, String model) {
 		super();
 		this.model = model;
@@ -81,7 +81,7 @@ public class Car extends Entity implements Serializable{
 
 	@Override
 	public String toString() {
-		return "model:" + model + "brand:" + brand;
+		return "id: " + super.getId()+"; " + "model: " + model + "; " + "brand: " + brand + "; ";
 	}
 
 }
