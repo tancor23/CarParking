@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +9,7 @@
 </head>
 <body>
 	<p>Hello User!</p>
-	<c:out value="${msg_success}"/>
+	<c:out value="${msg_success}" />
 	<h2>Car List</h2>
 	<table border="1">
 		<tr>
@@ -18,12 +18,13 @@
 			<th>Model</th>
 		</tr>
 		<c:forEach items="${carlist}" var="car">
-		<tr>
-			<td>${car.id}</td>
-			<td>${car.brand}</td>
-			<td>${car.model}</td>
-		</tr>
+			<tr>
+				<td>${car.id}</td>
+				<td>${car.brand}</td>
+				<td>${car.model}</td>
+			</tr>
 		</c:forEach>
-	</table>	
+	</table>
+	<a href="/carparking/FrontController?action=view_avaliable_car_list">Заказать машину</a>
 </body>
 </html>
