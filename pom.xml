@@ -32,10 +32,18 @@
 		<spring-framework.version>4.3.16.RELEASE</spring-framework.version>
 		<spring-web.version>4.3.16.RELEASE</spring-web.version>
 		<hibernate-core.version>4.3.11.Final</hibernate-core.version>
+		<testng.version>6.11</testng.version>
 
 	</properties>
 
 	<dependencies>
+
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>${testng.version}</version>
+		</dependency>
+
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
@@ -90,8 +98,6 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>${hibernate-core.version}</version>
 		</dependency>
-
-
 
 	</dependencies>
 
