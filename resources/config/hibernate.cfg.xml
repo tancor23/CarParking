@@ -24,7 +24,15 @@
 			root
 		</property>
 
+	<!-- 	<property name="show_sql">true</property>
+
+		<property name="hbm2ddl.auto">create</property>
+
+		<property name="hibernate.connection.pool_size">10</property> -->
+		
 		<mapping resource="hbm/car.hbm.xml" />
+		
+
 
 	</session-factory>
 

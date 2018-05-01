@@ -4,8 +4,8 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-<import resource="/action-beans.xml"/>
-<import resource="/dao-beans.xml"/>
-<import resource="/service-beans.xml"/>
+	<import resource="/action-beans.xml" />
+	<import resource="/dao-beans.xml" />
+	<import resource="/service-beans.xml" />
 
 </beans>

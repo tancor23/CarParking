@@ -5,12 +5,17 @@
 
 	<bean name="view_car_list"
 		class="by.htp.carparking.web.action.impl.CarListViewAction">
-		<property name="carService" ref="carService"></property>
+		<property name="carService" ref="carService"/>
 	</bean>
 
 	<bean name="order_car"
 		class="by.htp.carparking.web.action.impl.OrderCarAction">
-		<property name="orderService" ref="orderService"></property>
+		<property name="orderService" ref="orderService"/>
+	</bean>
+
+	<bean id="view_avaliable_car_list"
+		class="by.htp.carparking.web.action.impl.AvailableCarListViewAction">
+		<property name="carService" ref="carService" />
 	</bean>
 
 
