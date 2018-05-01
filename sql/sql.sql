@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `cars` (
   PRIMARY KEY (`car_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
--- Dumping data for table carparking.cars: ~9 rows (approximately)
+-- Dumping data for table carparking.cars: ~10 rows (approximately)
 DELETE FROM `cars`;
 /*!40000 ALTER TABLE `cars` DISABLE KEYS */;
 INSERT INTO `cars` (`car_id`, `brand`, `model`) VALUES
