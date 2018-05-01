@@ -2,18 +2,44 @@ package by.htp.carparking.dao;
 
 import java.util.List;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import by.htp.carparking.dao.hbn.SessionFactoryManager;
 import by.htp.carparking.domain.Entity;
 
 public interface BaseDao<T extends Entity> {
 
-	void create(T entity);
+	default void create(T entity) {
+		SessionFactory sessionFactory = SessionFactoryManager.getSessionFactory();
+		Session session = sessionFactory.openSession();
+		session.getTransaction().begin();
+		session.save(entity);
+		session.getTransaction().commit();
+		session.close();
+	}
 
 	T read(int id);
 
 	List<T> readAll();
 
-	void update(T entity);
+	default void update(T entity) {
+		SessionFactory sessionFactory = SessionFactoryManager.getSessionFactory();
+		Session session = sessionFactory.openSession();
+		session.getTransaction().begin();
+		session.update(entity);
+		session.getTransaction().commit();
+		session.close();
+	}
 
-	void delete(int id);
+	default void delete(int id) {
+		SessionFactory sessionFactory = SessionFactoryManager.getSessionFactory();
+		Session session = sessionFactory.openSession();
+		session.getTransaction().begin();
+		T entity = read(id);
+		session.delete(entity);
+		session.getTransaction().commit();
+		session.close();
+	}
 
 }

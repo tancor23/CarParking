@@ -12,10 +12,6 @@ public class CarListViewAction implements BaseAction {
 	// TODO change to IoC
 	private CarService carService;
 	
-	public CarService getCarService() {
-		return carService;
-	}
-
 	public void setCarService(CarService carService) {
 		this.carService = carService;
 	}

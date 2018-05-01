@@ -57,20 +57,20 @@ public class MainServlet extends HttpServlet {
 				String brand = request.getParameter("brand");
 				String model = request.getParameter("model");
 				Car car = new Car(brand, model);
-				DAOSingletonOfCar.getDAO().carDAO.create(car);
+				DAOSingletonOfCar.getDAO().carDao.create(car);
 			}
 			if (request.getParameter("action").equals("update")) {
-				int id = FormUtil.getInt(request, "id");
+				int id = FormUtil.getInt(request, "car_id");
 				String brand = request.getParameter("brand");
 				String model = request.getParameter("model");
 				Car car = new Car(id, brand, model);
-				DAOSingletonOfCar.getDAO().carDAO.update(car);
+				DAOSingletonOfCar.getDAO().carDao.update(car);
 			}
 		}
 		if (request.getParameter("delete") != null) {
-			DAOSingletonOfCar.getDAO().carDAO.delete(FormUtil.getInt(request, "delete"));
+			DAOSingletonOfCar.getDAO().carDao.delete(FormUtil.getInt(request, "delete"));
 		}
-		List<Car> cars = DAOSingletonOfCar.getDAO().carDAO.readAll();
+		List<Car> cars = DAOSingletonOfCar.getDAO().carDao.readAll();
 		request.setAttribute("cars", cars);
 		RequestDispatcher dispatcher = request.getRequestDispatcher(PAGE_USER_MAIN);
 		dispatcher.forward(request, response);

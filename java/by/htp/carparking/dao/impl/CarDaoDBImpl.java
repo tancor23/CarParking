@@ -11,11 +11,11 @@ import java.util.List;
 import by.htp.carparking.dao.util.DBConnectionHelper;
 import by.htp.carparking.dao.CarDao;
 import by.htp.carparking.domain.Car;
-
+/**
+ * @author Vydra_Sergei
+ * Needs to change String queries, lo4j
+ */
 public class CarDaoDBImpl implements CarDao {
-
-	public CarDaoDBImpl() {
-	}
 
 	@Override
 	public void create(Car car) {
@@ -29,7 +29,7 @@ public class CarDaoDBImpl implements CarDao {
 			if (rowsCount == 1) {
 				ResultSet result = ps.getGeneratedKeys();
 				result.next();
-				int id = result.getInt("id_car");
+				int id = result.getInt("car_id");
 				car.setId(id);
 			}
 		} catch (SQLException e) {
@@ -41,7 +41,7 @@ public class CarDaoDBImpl implements CarDao {
 	public Car read(int id) {
 		try (Connection connection = DBConnectionHelper.connect();
 				PreparedStatement ps = connection
-						.prepareStatement("Select id_car, brand, model FROM cars WHERE id_car=?")) {
+						.prepareStatement("Select car_id, brand, model FROM cars WHERE id_car=?")) {
 			ps.setInt(1, id);
 			ResultSet result = ps.executeQuery();
 			if (result.next()) {
@@ -58,14 +58,14 @@ public class CarDaoDBImpl implements CarDao {
 
 	@Override
 	public List<Car> readAll() {
-		ArrayList<Car> cars = new ArrayList<>();
+		List<Car> cars = new ArrayList<>();
 
 		try (Connection connection = DBConnectionHelper.connect(); Statement statement = connection.createStatement()) {
 
-			ResultSet result = statement.executeQuery("SELECT id_car, brand, model FROM cars");
+			ResultSet result = statement.executeQuery("SELECT car_id, brand, model FROM cars");
 			while (result.next()) {
 				Car car = new Car();
-				car.setId(result.getInt("id_car"));
+				car.setId(result.getInt("car_id"));
 				car.setBrand(result.getString("brand"));
 				car.setModel(result.getString("model"));
 				cars.add(car);
@@ -80,7 +80,7 @@ public class CarDaoDBImpl implements CarDao {
 	public void update(Car car) {
 		try (Connection connection = DBConnectionHelper.connect();
 				PreparedStatement ps = connection
-						.prepareStatement("UPDATE cars SET brand=?, model=? WHERE id_car=?;")) {
+						.prepareStatement("UPDATE cars SET brand=?, model=? WHERE car_id=?;")) {
 			ps.setString(1, car.getBrand());
 			ps.setString(2, car.getModel());
 			ps.setInt(3, car.getId());

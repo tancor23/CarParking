@@ -8,7 +8,7 @@ public class DAOSingletonOfOrder {
 	
 	private static DAOSingletonOfOrder instance;
 	
-	public final OrderDaoDBImpl carDAO = new OrderDaoDBImpl();
+	public final OrderDaoDBImpl orderDAO = new OrderDaoDBImpl();
 	
 	public static DAOSingletonOfOrder getDAO(){
         if (instance == null){

@@ -8,7 +8,7 @@ public class DAOSingletonOfCar {
 	
 	private static DAOSingletonOfCar instance;
 	
-	public final CarDaoDBImpl carDAO = new CarDaoDBImpl();
+	public final CarDaoDBImpl carDao = new CarDaoDBImpl();
 	
 	public static DAOSingletonOfCar getDAO(){
         if (instance == null){

@@ -81,7 +81,7 @@ public class Car extends Entity implements Serializable {
 
 	@Override
 	public String toString() {
-		return "id: " + super.getId()+"; " + "model: " + model + "; " + "brand: " + brand + "; ";
+		return "id: " + super.getId() + "; " + "brand: " + brand + "; " + "model: " + model + "; ";
 	}
 
 }
